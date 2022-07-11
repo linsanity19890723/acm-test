@@ -2,7 +2,7 @@
 apiVersion: "apps/v1"
 kind: "Deployment"
 metadata:
-  name: "anthos-test"
+  name: "anthos-test-outside"
   namespace: "repo-sync-from-otherrepo"
   labels:
     app: "anthos-test"
