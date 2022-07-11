@@ -1,0 +1,18 @@
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  name: "anthos-test"
+  namespace: "repo-sync-from-otherrepo"
+  labels:
+    app: "anthos-test"
+  #annotations:
+  #  configsync.gke.io/cluster-name-selector: anthos-test-aws,anthos-test-eks
+spec:
+  ports:
+    #- protocol: "TCP"
+    - name: http
+      port: 80
+      targetPort: 8080
+  selector:
+    app: "anthos-test"
+  type: "NodePort"

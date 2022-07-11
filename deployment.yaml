@@ -1,0 +1,25 @@
+---
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  name: "anthos-test"
+  namespace: "repo-sync-from-otherrepo"
+  labels:
+    app: "anthos-test"
+  #annotations:
+  #  configsync.gke.io/cluster-name-selector: anthos-test-aws,anthos-test-eks
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "anthos-test"
+  template:
+    metadata:
+      labels:
+        app: "anthos-test"
+    spec:
+      containers:
+        - name: "anthos-test"
+          image: "gcr.io/google-samples/hello-app:2.0"
+          ports:
+            - containerPort: 8080
